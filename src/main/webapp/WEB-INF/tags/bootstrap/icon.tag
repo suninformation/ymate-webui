@@ -6,11 +6,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- Attributes --%>
 <%-- style: 图标名称，请参考：http://getbootstrap.com/components/#glyphicons --%>
-<%@ attribute name="style" required="true" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="style" rtexprvalue="true" type="java.lang.String" %>
+
+<%@ attribute name="caret" rtexprvalue="true" type="java.lang.String" %>
 
 <%@ attribute name="_id" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_style" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_class" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
-<c:if test="${not empty style}"><span class="glyphicon glyphicon-${style}"></span></c:if>
+<c:choose>
+    <c:when test="${caret}"><span class="caret"></span></c:when>
+    <c:otherwise><c:if test="${not empty style}"><span class="glyphicon glyphicon-${style}"></span></c:if></c:otherwise>
+</c:choose>
