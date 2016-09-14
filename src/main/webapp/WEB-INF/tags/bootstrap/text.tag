@@ -28,6 +28,8 @@
 <%@ attribute name="lowercase" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="uppercase" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="capitalize" rtexprvalue="true" type="java.lang.Boolean" %>
+<%-- lead: 让段落突出显示 --%>
+<%@ attribute name="lead" rtexprvalue="true" type="java.lang.Boolean" %>
 
 <%@ attribute name="_id" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_style" rtexprvalue="true" type="java.lang.String" %>
@@ -35,7 +37,7 @@
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
 <p <c:if test="${not empty _id}">id="${_id}"
-   </c:if>class="<c:if test="${navbar}">navbar-text<c:choose><c:when test="${left}"> navbar-left</c:when><c:when test="${right}"> navbar-right</c:when></c:choose></c:if><c:if test="${alignLeft}"> text-left</c:if><c:if test="${alignRight}"> text-right</c:if><c:if test="${alignCenter}"> text-center</c:if><c:if test="${justified}"> text-justified</c:if><c:if test="${nowrap}"> text-nowrap</c:if><c:if test="${lowercase}"> text-lowercase</c:if><c:if test="${uppercase}"> text-uppercase</c:if><c:if test="${capitalize}"> text-capitalize</c:if><c:if test="${not empty style}"> text-${style}</c:if><c:if test="${not empty bgStyle}"> bg-${style}</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"
+   </c:if>class="<c:if test="${navbar}">navbar-text<c:choose><c:when test="${left}"> navbar-left</c:when><c:when test="${right}"> navbar-right</c:when></c:choose></c:if><c:if test="${alignLeft}"> text-left</c:if><c:if test="${alignRight}"> text-right</c:if><c:if test="${alignCenter}"> text-center</c:if><c:if test="${justified}"> text-justified</c:if><c:if test="${nowrap}"> text-nowrap</c:if><c:if test="${lowercase}"> text-lowercase</c:if><c:if test="${uppercase}"> text-uppercase</c:if><c:if test="${capitalize}"> text-capitalize</c:if><c:if test="${not empty style}"> text-${style}</c:if><c:if test="${not empty bgStyle}"> bg-${style}</c:if><c:if test="${lead}"> lead</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"
         <c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}
 </c:if>><c:choose><c:when test="${link}"><a href="${func:defaultIfBlank(href, '#')}"<c:if
         test="${navbar}"> class="navbar-link"</c:if>>

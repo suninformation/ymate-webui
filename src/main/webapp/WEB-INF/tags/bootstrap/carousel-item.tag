@@ -8,7 +8,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/bootstrap" prefix="bs" %>
 <%-- Attributes --%>
 <%@ attribute name="src" rtexprvalue="true" type="java.lang.String" %>
-<%@ attribute name="dataSrc" required="true" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="dataSrc" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="width" rtexprvalue="true" type="java.lang.Integer" %>
 <%@ attribute name="height" rtexprvalue="true" type="java.lang.Integer" %>
 <%@ attribute name="alt" rtexprvalue="true" type="java.lang.String" %>
