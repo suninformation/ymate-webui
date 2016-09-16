@@ -25,6 +25,17 @@
 <%@ attribute name="_alt" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_rel" rtexprvalue="true" type="java.lang.String" %>
 
+<%@ attribute name="_hiddenXS" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_hiddenSM" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_hiddenMD" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_hiddenLG" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_hiddenPrint" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_visibleXS" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_visibleSM" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_visibleMD" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_visibleLG" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="_visiblePrint" rtexprvalue="true" type="java.lang.Boolean" %>
+
 <%@ attribute name="_id" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_style" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_class" rtexprvalue="true" type="java.lang.String" %>
@@ -50,7 +61,12 @@
         test="${_height > 0}"> height="${_height}px"</c:if><c:if
         test="${not empty _alt}"> alt="${_alt}"</c:if><c:if
         test="${not empty _rel}"> alt="${_rel}"</c:if><c:if
-        test="${not empty _class}"> class="${_class}"</c:if><c:if
+        test="${not empty _class}"> class="${_class}<c:if test="${_hiddenXS}"> hidden-xs</c:if><c:if
+        test="${_hiddenSM}"> hidden-sm</c:if><c:if test="${_hiddenMD}"> hidden-md</c:if><c:if
+        test="${_hiddenLG}"> hidden-lg</c:if><c:if test="${_hiddenPrint}"> hidden-print</c:if><c:if
+        test="${_visibleXS}"> visible-xs</c:if><c:if test="${_visibleSM}"> visible-sm</c:if><c:if
+        test="${_visibleMD}"> visible-md</c:if><c:if test="${_visibleLG}"> visible-lg</c:if><c:if
+        test="${_visiblePrint}"> visible-print</c:if>"</c:if><c:if
         test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
 <jsp:doBody/>
 <c:if test="${!_unclosed}"></${func:defaultIfBlank(_tag, 'div')}></c:if>

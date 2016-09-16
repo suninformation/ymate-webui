@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                 </c:otherwise></c:choose>
             </button>
-            <c:if test="${not empty brand}"><a class="navbar-brand" href="${func:defaultIfBlank(href, 'javascript:void(0);')}">${brand}</a></c:if>
+            <c:if test="${not empty brand}"><a class="navbar-brand" href="${func:defaultIfBlank(href, '#')}">${brand}</a></c:if>
             <c:if test="${not empty headBody}">${headBody}</c:if>
         </div>
         <div class="collapse navbar-collapse"<c:if test="${not empty collapseId}"> id="${collapseId}"</c:if>><jsp:doBody/></div></c:when><c:otherwise><jsp:doBody/></c:otherwise></c:choose>

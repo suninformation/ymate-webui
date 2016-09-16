@@ -38,7 +38,7 @@
         <bs:elements _tag="li" _id="${_id}" _style="${_style}" _attrs="${_attrs}">
             <jsp:attribute name="_class">dropdown<c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
             <jsp:body>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="${func:defaultIfBlank(href, 'javascript:void(0);')}">${title}</a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="${func:defaultIfBlank(href, '#')}">${title}</a>
                 <ul class="dropdown-menu"><jsp:doBody/></ul>
             </jsp:body>
         </bs:elements>
@@ -47,7 +47,7 @@
             <jsp:attribute name="_class">
                 ${_class}<c:if test="${disabled}"> disabled</c:if><c:if test="${active}"> active</c:if><c:if test="${previous}"> previous</c:if><c:if test="${next}"> next</c:if>
             </jsp:attribute>
-            <jsp:body><a href="${func:defaultIfBlank(href, 'javascript:void(0);')}"<c:if test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>><jsp:doBody/></a></jsp:body>
+            <jsp:body><a href="${func:defaultIfBlank(href, '#')}"<c:if test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>><jsp:doBody/></a></jsp:body>
         </bs:elements>
     </c:otherwise>
 </c:choose>
