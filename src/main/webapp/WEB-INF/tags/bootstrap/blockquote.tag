@@ -5,7 +5,7 @@
 <%@ tag language="java" pageEncoding="UTF-8" body-content="scriptless" trimDirectiveWhitespaces="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- Attributes --%>
-<%@ attribute name="reverse" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="reverse" rtexprvalue="true" type="java.lang.Boolean" %>
 
 <%@ attribute name="_id" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_style" rtexprvalue="true" type="java.lang.String" %>

@@ -5,7 +5,7 @@
 <%@ tag language="java" pageEncoding="UTF-8" body-content="scriptless" trimDirectiveWhitespaces="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- Attributes --%>
-<%-- opened: 默认是否展开 --%>
+<%-- expanded: 是否默认展开 --%>
 <%@ attribute name="expanded" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="panel" rtexprvalue="true" type="java.lang.Boolean" %>
 
