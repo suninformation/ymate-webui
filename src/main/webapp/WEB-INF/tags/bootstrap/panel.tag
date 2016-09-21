@@ -6,6 +6,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.ymate.net/ymweb_fn" prefix="func" %>
 <%-- Attributes --%>
+<%-- tabs: 是否应用于标签页面板组容器 --%>
+<%@ attribute name="tabs" rtexprvalue="true" type="java.lang.Boolean" %>
+<%-- active: 设置标签页面板激活状态 --%>
+<%@ attribute name="active" rtexprvalue="true" type="java.lang.Boolean" %>
+<%-- fade: 开启动画效果--%>
+<%@ attribute name="fade" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- style: 指定面板风格样式，可选值：default|primary|success|info|warning|danger --%>
 <%@ attribute name="style" rtexprvalue="true" type="java.lang.String" %>
 <%-- heading: 自定义面板标题 --%>
@@ -24,25 +30,29 @@
 <%@ attribute name="_class" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
-<div <c:if test="${not empty _id}">id="${_id}" </c:if>class="panel panel-${func:defaultIfBlank(style, 'default')}<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
-    <c:if test="${not empty heading or not empty title}">
-        <div class="panel-heading">
-            <c:choose>
-                <c:when test="${not empty heading}">${heading}</c:when>
-                <c:when test="${not empty title}">
-                    <h3 class="panel-title">${title}</h3>
-                </c:when>
-            </c:choose>
-        </div>
-    </c:if>
-    <c:choose>
-        <c:when test="${nobody}">
-            <c:if test="${not empty content}">
-                <div class="panel-body">${content}</div>
-            </c:if>
-            <jsp:doBody/>
-        </c:when>
-        <c:otherwise><div class="panel-body"><jsp:doBody/></div></c:otherwise>
-    </c:choose>
-    <c:if test="${not empty footer}"><div class="panel-footer">${footer}</div></c:if>
-</div>
+<c:choose><c:when test="${tabs}">
+    <div <c:if test="${not empty _id}">id="${_id}" </c:if>class="tab-pane<c:if test="${fade}"> fade</c:if><c:if test="${active}"><c:if test="${fade}"> in</c:if> active</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>><jsp:doBody/></div>
+</c:when><c:otherwise>
+    <div <c:if test="${not empty _id}">id="${_id}" </c:if>class="panel panel-${func:defaultIfBlank(style, 'default')}<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
+        <c:if test="${not empty heading or not empty title}">
+            <div class="panel-heading">
+                <c:choose>
+                    <c:when test="${not empty heading}">${heading}</c:when>
+                    <c:when test="${not empty title}">
+                        <h3 class="panel-title">${title}</h3>
+                    </c:when>
+                </c:choose>
+            </div>
+        </c:if>
+        <c:choose>
+            <c:when test="${nobody}">
+                <c:if test="${not empty content}">
+                    <div class="panel-body">${content}</div>
+                </c:if>
+                <jsp:doBody/>
+            </c:when>
+            <c:otherwise><div class="panel-body"><jsp:doBody/></div></c:otherwise>
+        </c:choose>
+        <c:if test="${not empty footer}"><div class="panel-footer">${footer}</div></c:if>
+    </div>
+</c:otherwise></c:choose>

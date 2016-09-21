@@ -33,7 +33,7 @@
         <ul <c:if test="${not empty _id}">id="${_id}" </c:if>class="media-list<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>><jsp:doBody/></ul>
     </c:when>
     <c:otherwise>
-        <<c:choose><c:when test="${item}">li</c:when><c:otherwise>div</c:otherwise></c:choose> <c:if test="${not empty _id}">id="${_id}" </c:if>class="media<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
+        <<c:choose><c:when test="${item}">li</c:when><c:otherwise>div</c:otherwise></c:choose> <c:if test="${not empty _id}"> id="${_id}" </c:if> class="media<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
             <c:choose><c:when test="${right}"><div class="media-body"><h4 class="media-heading">${title}</h4><jsp:doBody/></div>
                 <a class="media-right<c:if test="${middle}"> media-middle</c:if>" href="${func:defaultIfBlank(href, '#')}">
                 <bs:img src="${src}" alt="${alt}" width="${width}" height="${height}"/>
