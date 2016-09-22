@@ -4,6 +4,7 @@
 --%>
 <%@ tag language="java" pageEncoding="UTF-8" body-content="scriptless" trimDirectiveWhitespaces="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.ymate.net/ymweb_fn" prefix="func" %>
 <%@ taglib tagdir="/WEB-INF/tags/bootstrap" prefix="bs" %>
 <%-- Attributes --%>
 <%-- circle: 圆角 --%>
@@ -66,8 +67,6 @@
            large="${large}"
            _id="${_id}"
            _style="${_style}"
-           tip="${tip}"
-           placement="${placement}"
            popover="${popover}"
            content="${content}"
            navbar="${navbar}"
@@ -77,10 +76,10 @@
            modalId="${modalId}">
     <jsp:attribute name="tag"><c:if test="${not link and (type eq 'checkbox' or type eq 'radio')}">label</c:if></jsp:attribute>
     <jsp:attribute name="_class"><c:if test="${dropdown}">dropdown-toggle</c:if><c:if test="${iconBtn}"> icon-btn</c:if><c:if
-            test="${not empty stripe}"><%=" "%>${stripe}-stripe</c:if><c:if test="${circle}"> btn-circle</c:if><c:if test="${active}"> active</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
+            test="${not empty stripe}"><%=" "%>${stripe}-stripe</c:if><c:if test="${circle}"> btn-circle</c:if><c:if test="${active}"> active</c:if><c:if test="${not empty tip}"> tooltips</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
     <jsp:attribute name="_attrs"><c:if
             test="${dropdown and hover}">data-hover="dropdown" data-delay="1000" data-close-others="true"</c:if><c:if
-            test="${toggle}"> data-toggle="button"</c:if><c:if test="${not empty loadingText}"> data-loading-text="${loadingText}"</c:if><c:if
+            test="${toggle}"> data-toggle="button"</c:if><c:if test="${not empty loadingText}"> data-loading-text="${loadingText}"</c:if><c:if test="${not empty tip}"> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}" data-html="true" data-original-title="${tip}"</c:if><c:if
             test="${not empty _attrs}"><%=" "%>${_attrs}</c:if></jsp:attribute>
     <jsp:body>
         <c:if test="${type eq 'checkbox' or type eq 'radio'}"><input type="${type}" class="toggle"></c:if>
