@@ -40,6 +40,17 @@
 <%@ attribute name="tip" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="placement" rtexprvalue="true" type="java.lang.String" %>
 
+<%@ attribute name="confirmation" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="confirmSingleton" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="confirmPopout" rtexprvalue="true" type="java.lang.Boolean" %>
+
+<%@ attribute name="confirmBtnOkLabel" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="confirmBtnOkIcon" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="confirmBtnOkClass" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="confirmBtnCancelLabel" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="confirmBtnCancelIcon" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="confirmBtnCancelClass" rtexprvalue="true" type="java.lang.String" %>
+
 <%@ attribute name="popover" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="content" rtexprvalue="true" type="java.lang.String" %>
 
@@ -74,16 +85,38 @@
            collapseId="${collapseId}"
            modalId="${modalId}">
     <jsp:attribute name="tag"><c:if test="${not link and (type eq 'checkbox' or type eq 'radio')}">label</c:if></jsp:attribute>
-    <jsp:attribute name="_class"><c:if test="${iconOnly}"> btn-icon-only</c:if><c:if test="${dropdown}">dropdown-toggle</c:if><c:if test="${iconBtn}"> icon-btn</c:if><c:if
-            test="${not empty stripe}"><%=" "%>${stripe}-stripe</c:if><c:if test="${circle}"> btn-circle</c:if><c:if test="${active}"> active</c:if><c:if test="${not empty tip}"> tooltips</c:if><c:if test="${not empty popover}"> popovers</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
+    <jsp:attribute name="_class"><c:if test="${iconOnly}"> btn-icon-only</c:if><c:if
+            test="${dropdown}"> dropdown-toggle</c:if><c:if test="${iconBtn}"> icon-btn</c:if><c:if
+            test="${not empty stripe}"><%=" "%>${stripe}-stripe</c:if><c:if test="${circle}"> btn-circle</c:if><c:if
+            test="${active}"> active</c:if><c:if test="${not empty tip}"> tooltips</c:if><c:if
+            test="${not empty popover and not confirmation}"> popovers</c:if><c:if
+            test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
     <jsp:attribute name="_attrs"><c:if
             test="${dropdown and hover}">data-hover="dropdown" data-delay="1000" data-close-others="true"</c:if><c:if
-            test="${toggle}"> data-toggle="button"</c:if><c:if test="${not empty loadingText}"> data-loading-text="${loadingText}"</c:if><c:if test="${not empty tip}"> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}" data-html="true" data-original-title="${tip}"</c:if><c:if test="${not empty popover}"><c:if test="${hover}"> data-trigger="hover"</c:if> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}" data-content="${content}" data-original-title="${popover}"</c:if><c:if
+            test="${toggle and not confirmation}"> data-toggle="button"</c:if><c:if
+            test="${not empty loadingText}"> data-loading-text="${loadingText}"</c:if><c:if
+            test="${not empty tip}"> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}" data-html="true" data-original-title="${tip}"</c:if><c:if
+            test="${not empty popover}"><c:if test="${confirmation}"> data-toggle="confirmation"<c:if
+            test="${not empty confirmBtnOkLabel}"> data-btn-ok-label="${confirmBtnOkLabel}"</c:if><c:if
+            test="${not empty confirmBtnOkIcon}"> data-btn-ok-icon="${confirmBtnOkIcon}"</c:if><c:if
+            test="${not empty confirmBtnOkClass}"> data-btn-ok-class="${confirmBtnOkClass}"</c:if><c:if
+            test="${not empty confirmBtnCancelLabel}"> data-btn-cancel-label="${confirmBtnCancelLabel}"</c:if><c:if
+            test="${not empty confirmBtnCancelIcon}"> data-btn-cancel-icon="${confirmBtnCancelIcon}"</c:if><c:if
+            test="${not empty confirmBtnCancelClass}"> data-btn-cancel-class="${confirmBtnCancelClass}"</c:if><c:if test="${confirmSingleton}"> data-singleton="true"</c:if><c:if test="${confirmPopout}"> data-popout="true"</c:if></c:if><c:if
+            test="${hover}"> data-trigger="hover"</c:if> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}"<c:if
+            test="${not confirmation}"> data-content="${content}"</c:if> data-original-title="${popover}"</c:if><c:if
             test="${not empty _attrs}"><%=" "%>${_attrs}</c:if></jsp:attribute>
     <jsp:body>
         <c:if test="${type eq 'checkbox' or type eq 'radio'}"><input type="${type}" class="toggle"></c:if>
-        <c:choose><c:when test='${not empty icon}'><i class="${icon}"></i> </c:when><c:when test='${not empty image}'><img src="${image}" alt=""> </c:when></c:choose>
-        <c:choose><c:when test="${iconBtn}"><div><jsp:doBody/></div></c:when><c:otherwise><jsp:doBody/></c:otherwise></c:choose>
+        <c:choose><c:when test='${not empty icon}'><i class="${icon}"></i> </c:when><c:when
+                test='${not empty image}'><img src="${image}" alt=""> </c:when></c:choose>
+        <c:choose><c:when test="${iconBtn}">
+            <div>
+                <jsp:doBody/>
+            </div>
+        </c:when><c:otherwise>
+            <jsp:doBody/>
+        </c:otherwise></c:choose>
         <c:if test="${dropdown}">&nbsp;<i class="fa fa-angle-down"></i></c:if>
     </jsp:body>
 </bs:button>
