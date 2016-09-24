@@ -16,6 +16,8 @@
 <%@ attribute name="justified" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="dropup" rtexprvalue="true" type="java.lang.Boolean" %>
 
+<%@ attribute name="devided" rtexprvalue="true" type="java.lang.Boolean" %>
+
 <%@ attribute name="mini" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="small" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="large" rtexprvalue="true" type="java.lang.Boolean" %>
@@ -26,7 +28,7 @@
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
 <bs:button-group _id="${_id}" _style="${_style}" toolbar="${toolbar}" vertical="${vertical}" justified="${justified}" dropup="${dropup}" mini="${mini}" small="${small}" large="${large}">
-    <jsp:attribute name="_class"><c:if test="${circle}"> btn-group-circle</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
+    <jsp:attribute name="_class"><c:if test="${devided}"> btn-group-devided</c:if><c:if test="${circle}"> btn-group-circle</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
     <jsp:attribute name="_attrs"><c:if test="${toggle}"> data-toggle="buttons"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if></jsp:attribute>
     <jsp:body>
         <jsp:doBody/>

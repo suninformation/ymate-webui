@@ -11,6 +11,7 @@
 <%@ attribute name="circle" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- iconBtn: 图标按钮--%>
 <%@ attribute name="iconBtn" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="iconOnly" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="icon" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="image" rtexprvalue="true" type="java.lang.String" %>
 <%-- toggle: Single Toggle --%>
@@ -67,24 +68,22 @@
            large="${large}"
            _id="${_id}"
            _style="${_style}"
-           popover="${popover}"
-           content="${content}"
            navbar="${navbar}"
            right="${right}"
            left="${left}"
            collapseId="${collapseId}"
            modalId="${modalId}">
     <jsp:attribute name="tag"><c:if test="${not link and (type eq 'checkbox' or type eq 'radio')}">label</c:if></jsp:attribute>
-    <jsp:attribute name="_class"><c:if test="${dropdown}">dropdown-toggle</c:if><c:if test="${iconBtn}"> icon-btn</c:if><c:if
-            test="${not empty stripe}"><%=" "%>${stripe}-stripe</c:if><c:if test="${circle}"> btn-circle</c:if><c:if test="${active}"> active</c:if><c:if test="${not empty tip}"> tooltips</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
+    <jsp:attribute name="_class"><c:if test="${iconOnly}"> btn-icon-only</c:if><c:if test="${dropdown}">dropdown-toggle</c:if><c:if test="${iconBtn}"> icon-btn</c:if><c:if
+            test="${not empty stripe}"><%=" "%>${stripe}-stripe</c:if><c:if test="${circle}"> btn-circle</c:if><c:if test="${active}"> active</c:if><c:if test="${not empty tip}"> tooltips</c:if><c:if test="${not empty popover}"> popovers</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
     <jsp:attribute name="_attrs"><c:if
             test="${dropdown and hover}">data-hover="dropdown" data-delay="1000" data-close-others="true"</c:if><c:if
-            test="${toggle}"> data-toggle="button"</c:if><c:if test="${not empty loadingText}"> data-loading-text="${loadingText}"</c:if><c:if test="${not empty tip}"> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}" data-html="true" data-original-title="${tip}"</c:if><c:if
+            test="${toggle}"> data-toggle="button"</c:if><c:if test="${not empty loadingText}"> data-loading-text="${loadingText}"</c:if><c:if test="${not empty tip}"> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}" data-html="true" data-original-title="${tip}"</c:if><c:if test="${not empty popover}"><c:if test="${hover}"> data-trigger="hover"</c:if> data-container="body" data-placement="${func:defaultIfBlank(placement, 'auto')}" data-content="${content}" data-original-title="${popover}"</c:if><c:if
             test="${not empty _attrs}"><%=" "%>${_attrs}</c:if></jsp:attribute>
     <jsp:body>
         <c:if test="${type eq 'checkbox' or type eq 'radio'}"><input type="${type}" class="toggle"></c:if>
         <c:choose><c:when test='${not empty icon}'><i class="${icon}"></i> </c:when><c:when test='${not empty image}'><img src="${image}" alt=""> </c:when></c:choose>
-        <jsp:doBody/>
+        <c:choose><c:when test="${iconBtn}"><div><jsp:doBody/></div></c:when><c:otherwise><jsp:doBody/></c:otherwise></c:choose>
         <c:if test="${dropdown}">&nbsp;<i class="fa fa-angle-down"></i></c:if>
     </jsp:body>
 </bs:button>
