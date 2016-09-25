@@ -22,7 +22,7 @@
 <%@ attribute name="_class" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
-<div <c:if test="${not empty _id}">id="${_id}" </c:if>class="modal<c:if test="${fade}"> fade</c:if>" tabindex="-1" role="dialog" aria-hidden="true" <c:if test="${not nonStatic}"> data-backdrop="static" data-keyboard="false"</c:if>>
+<div <c:if test="${not empty _id}">id="${_id}" </c:if>class="modal<c:if test="${fade}"> fade</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if> tabindex="-1" role="dialog" aria-hidden="true" <c:if test="${not nonStatic}"> data-backdrop="static" data-keyboard="false"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
     <div class="modal-dialog<c:if test="${small}"> modal-sm</c:if><c:if test="${large}"> modal-lg</c:if><c:if test="${not empty dialogClass}"><%=" "%>${dialogClass}</c:if>">
         <div class="modal-content">
             <c:if test="${not hideCloseBtn or not empty title}"><div class="modal-header">
