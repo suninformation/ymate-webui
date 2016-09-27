@@ -11,12 +11,14 @@
 <%@ attribute name="formBody" rtexprvalue="true" type="java.lang.Boolean" %>
 
 <%@ attribute name="fullHeightContent" rtexprvalue="true" type="java.lang.Boolean" %>
+<%-- tabsBelow: 指定内容中的标签导航位置在下面 --%>
+<%@ attribute name="tabsBelow" rtexprvalue="true" type="java.lang.Boolean" %>
 
 <%@ attribute name="_id" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_style" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_class" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
-<div <c:if test="${not empty _id}">id="${_id}" </c:if>class="portlet-body<c:if test="${formBody}"> form</c:if><c:if test="${emptyBody}"> portlet-empty</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
+<div <c:if test="${not empty _id}">id="${_id}" </c:if>class="portlet-body<c:if test="${formBody}"> form</c:if><c:if test="${emptyBody}"> portlet-empty</c:if><c:if test="${tabsBelow}"> tabs-below</c:if><c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
     <c:choose><c:when test="${fullHeightContent}"><div class="full-height-content-body"><jsp:doBody/></div></c:when><c:otherwise><jsp:doBody/></c:otherwise></c:choose>
 </div>
