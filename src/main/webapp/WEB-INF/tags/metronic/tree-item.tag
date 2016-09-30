@@ -1,8 +1,9 @@
-<%@ tag import="org.apache.commons.lang.StringUtils" %><%--
+<%--
   User: 刘镇 (suninformation@163.com)
   Desc: 树节点项
 --%>
 <%@ tag language="java" pageEncoding="UTF-8" body-content="scriptless" trimDirectiveWhitespaces="true" %>
+<%@ tag import="org.apache.commons.lang.StringUtils" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%-- Attributes --%>
 <%@ attribute name="opened" rtexprvalue="true" type="java.lang.Boolean" %>
