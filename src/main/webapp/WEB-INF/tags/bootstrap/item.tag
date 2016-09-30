@@ -9,6 +9,8 @@
 <%-- Attributes --%>
 <%@ attribute name="divider" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="head" rtexprvalue="true" type="java.lang.Boolean" %>
+<%-- subitem: 是否包含子元素，将影响A链接标签是否包裹body体，当subitem=true时A链接内容通过title属性设置 --%>
+<%@ attribute name="subitem" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- 用于下拉菜单标签 --%>
 <%@ attribute name="dropdown" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="title" rtexprvalue="true" type="java.lang.String" %>
@@ -50,7 +52,7 @@
             <jsp:attribute name="_class">
                 ${_class}<c:if test="${disabled}"> disabled</c:if><c:if test="${active}"> active</c:if><c:if test="${previous}"> previous</c:if><c:if test="${next}"> next</c:if>
             </jsp:attribute>
-            <jsp:body><a href="${func:defaultIfBlank(href, '#')}"<c:if test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>><jsp:doBody/></a></jsp:body>
+            <jsp:body><c:choose><c:when test="${subitem}"><a href="${func:defaultIfBlank(href, '#')}"<c:if test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>>${title}</a><jsp:doBody/></c:when><c:otherwise><a href="${func:defaultIfBlank(href, '#')}"<c:if test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>><jsp:doBody/></a></c:otherwise></c:choose></jsp:body>
         </bs:elements>
     </c:otherwise>
 </c:choose>
