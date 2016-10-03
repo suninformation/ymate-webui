@@ -10,4 +10,4 @@
 <%@ attribute name="_class" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
-<div <c:if test="${not empty _id}">id="${_id}" </c:if>class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>><jsp:doBody/></div>
+<div <c:if test="${not empty _id}">id="${_id}" </c:if>class="bs-docs-sidebar hidden-print hidden-sm hidden-xs<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>><jsp:doBody/></div>
