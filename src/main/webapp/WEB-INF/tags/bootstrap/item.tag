@@ -52,7 +52,16 @@
             <jsp:attribute name="_class">
                 ${_class}<c:if test="${disabled}"> disabled</c:if><c:if test="${active}"> active</c:if><c:if test="${previous}"> previous</c:if><c:if test="${next}"> next</c:if>
             </jsp:attribute>
-            <jsp:body><c:choose><c:when test="${subitem}"><a href="${func:defaultIfBlank(href, '#')}"<c:if test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>>${title}</a><jsp:doBody/></c:when><c:otherwise><a href="${func:defaultIfBlank(href, '#')}"<c:if test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>><jsp:doBody/></a></c:otherwise></c:choose></jsp:body>
+            <jsp:body><c:choose><c:when test="${subitem}"><c:choose><c:when test="${not empty href or not empty tabId or not empty modalId}"><a href="${func:defaultIfBlank(href, '#')}"<c:if
+                    test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if
+                    test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>>${title}</a></c:when><c:otherwise>${title}</c:otherwise></c:choose>
+                <jsp:doBody/>
+            </c:when><c:otherwise><c:choose><c:when test="${not empty href or not empty tabId or not empty modalId}"><a href="${func:defaultIfBlank(href, '#')}"<c:if
+                    test="${not empty tabId}"> data-toggle="tab" data-target="#${tabId}"</c:if><c:if
+                    test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if>>
+                <jsp:doBody/>
+            </a></c:when><c:otherwise><jsp:doBody/></c:otherwise></c:choose></c:otherwise></c:choose>
+            </jsp:body>
         </bs:elements>
     </c:otherwise>
 </c:choose>
