@@ -16,6 +16,6 @@
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
 <c:choose>
-    <c:when test="${caret}"><span class="caret"></span></c:when>
-    <c:otherwise><c:if test="${not empty style}"><span class="glyphicon glyphicon-${style}"></span></c:if></c:otherwise>
+    <c:when test="${caret}"><span class="caret<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>></span></c:when>
+    <c:otherwise><c:if test="${not empty style}"><span class="glyphicon glyphicon-${style}<c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"<c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>></span></c:if></c:otherwise>
 </c:choose>
