@@ -16,7 +16,8 @@
 <%@ attribute name="name" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="placeholder" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="value" rtexprvalue="true" type="java.lang.String" %>
-
+<%-- nonControl: 指定表单控件元素不添加form-control样式--%>
+<%@ attribute name="nonControl" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="style" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="attrs" rtexprvalue="true" type="java.lang.String" %>
 
@@ -65,13 +66,13 @@
                 <p class="form-control-static<c:if test="${not empty style}">${" ".concat(style)}</c:if>"<c:if test="${not empty attrs}">${" ".concat(attrs)}</c:if>>${value}</p>
             </c:when>
             <c:when test="${type eq 'textarea'}">
-                <textarea class="form-control<c:choose><c:when test="${large}"> input-lg</c:when><c:when test="${small}"> input-sm</c:when></c:choose><c:if test="${not empty style}">${" ".concat(style)}</c:if>"<c:if test="${not empty id}"> id="${id}"</c:if><c:if test="${not empty name}"> name="${name}"</c:if><c:if test="${rows > 0}"> rows="${rows}"</c:if><c:if test="${not empty placeholder}"> placeholder="${placeholder}"</c:if><c:if test="${disabled}"> disabled</c:if><c:if test="${not empty attrs}">${" ".concat(attrs)}</c:if>>${value}<jsp:doBody/></textarea>
+                <textarea class="<c:if test="${not nonControl}">form-control</c:if><c:choose><c:when test="${large}"> input-lg</c:when><c:when test="${small}"> input-sm</c:when></c:choose><c:if test="${not empty style}">${" ".concat(style)}</c:if>"<c:if test="${not empty id}"> id="${id}"</c:if><c:if test="${not empty name}"> name="${name}"</c:if><c:if test="${rows > 0}"> rows="${rows}"</c:if><c:if test="${not empty placeholder}"> placeholder="${placeholder}"</c:if><c:if test="${disabled}"> disabled</c:if><c:if test="${not empty attrs}">${" ".concat(attrs)}</c:if>>${value}<jsp:doBody/></textarea>
             </c:when>
             <c:when test="${type eq 'select'}">
-                <select class="form-control<c:choose><c:when test="${large}"> input-lg</c:when><c:when test="${small}"> input-sm</c:when></c:choose><c:if test="${not empty style}">${" ".concat(style)}</c:if>"<c:if test="${not empty id}"> id="${id}"</c:if><c:if test="${multiple}"> multiple</c:if><c:if test="${disabled}"> disabled</c:if><c:if test="${not empty attrs}">${" ".concat(attrs)}</c:if>>${value}<jsp:doBody/></select>
+                <select class="<c:if test="${not nonControl}">form-control</c:if><c:choose><c:when test="${large}"> input-lg</c:when><c:when test="${small}"> input-sm</c:when></c:choose><c:if test="${not empty style}">${" ".concat(style)}</c:if>"<c:if test="${not empty id}"> id="${id}"</c:if><c:if test="${multiple}"> multiple</c:if><c:if test="${disabled}"> disabled</c:if><c:if test="${not empty attrs}">${" ".concat(attrs)}</c:if>>${value}<jsp:doBody/></select>
             </c:when>
             <c:otherwise>
-                <input type="${type}" class="form-control<c:choose><c:when test="${large}"> input-lg</c:when><c:when test="${small}"> input-sm</c:when></c:choose><c:if test="${not empty style}">${" ".concat(style)}</c:if>"<c:if test="${not empty id}"> id="${id}"</c:if><c:if test="${not empty name}"> name="${name}"</c:if><c:if test="${not empty value}"> value="${value}"</c:if><c:if test="${not empty placeholder}"> placeholder="${placeholder}"</c:if><c:if test="${disabled}"> disabled</c:if><c:if test="${not empty attrs}">${" ".concat(attrs)}</c:if>>
+                <input type="${type}" class="<c:if test="${not nonControl}">form-control</c:if><c:choose><c:when test="${large}"> input-lg</c:when><c:when test="${small}"> input-sm</c:when></c:choose><c:if test="${not empty style}">${" ".concat(style)}</c:if>"<c:if test="${not empty id}"> id="${id}"</c:if><c:if test="${not empty name}"> name="${name}"</c:if><c:if test="${not empty value}"> value="${value}"</c:if><c:if test="${not empty placeholder}"> placeholder="${placeholder}"</c:if><c:if test="${disabled}"> disabled</c:if><c:if test="${not empty attrs}">${" ".concat(attrs)}</c:if>>
             </c:otherwise>
         </c:choose>
         <c:if test="${not empty feedbackIcon}"><span class="${feedbackIcon} form-control-feedback"></span></c:if>
