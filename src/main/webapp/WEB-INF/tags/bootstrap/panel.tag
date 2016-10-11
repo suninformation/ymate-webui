@@ -24,6 +24,8 @@
 <%@ attribute name="nobody" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- content: 当nobody=true时用于指定panel-body的内容 --%>
 <%@ attribute name="content" rtexprvalue="true" type="java.lang.String" %>
+<%-- afterBody: 指定content内容的前后位置 --%>
+<%@ attribute name="afterBody" rtexprvalue="true" type="java.lang.Boolean" %>
 
 <%@ attribute name="_id" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_style" rtexprvalue="true" type="java.lang.String" %>
@@ -46,10 +48,11 @@
         </c:if>
         <c:choose>
             <c:when test="${nobody}">
+                <c:if test="${afterBody}"><jsp:doBody/></c:if>
                 <c:if test="${not empty content}">
                     <div class="panel-body">${content}</div>
                 </c:if>
-                <jsp:doBody/>
+                <c:if test="${not afterBody}"><jsp:doBody/></c:if>
             </c:when>
             <c:otherwise><div class="panel-body"><jsp:doBody/></div></c:otherwise>
         </c:choose>
