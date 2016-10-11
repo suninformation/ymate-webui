@@ -53,7 +53,7 @@
         test="${dropdown}"> data-toggle="dropdown"</c:if><c:if
         test="${not empty collapseId}"> data-toggle="collapse" data-target="#${collapseId}"</c:if><c:if
         test="${not empty modalId}"> data-toggle="modal" data-target="#${modalId}"</c:if><c:if
-        test="${not empty tip or not empty popover}"><c:choose><c:when
+        test="${not empty tip or not empty popover}"> data-container="body"<c:choose><c:when
         test="${not empty tip}"> data-tip="tooltip" title="${tip}"</c:when><c:otherwise> data-popover="popover"<c:choose><c:when
         test="${not empty content}"> title="${popover}" data-content="${content}"</c:when><c:otherwise> data-content="${popover}"</c:otherwise></c:choose></c:otherwise></c:choose> data-placement="${func:defaultIfBlank(placement, 'auto')}"</c:if><c:if
         test="${not empty _attrs}"><%=" "%>${_attrs}

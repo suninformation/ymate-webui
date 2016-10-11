@@ -2,7 +2,7 @@
   User: 刘镇 (suninformation@163.com)
   Desc: 图片签标
 --%>
-<%@ tag language="java" pageEncoding="UTF-8" body-content="scriptless" trimDirectiveWhitespaces="true" %>
+<%@ tag language="java" pageEncoding="UTF-8" body-content="empty" trimDirectiveWhitespaces="true" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags/bootstrap" prefix="bs" %>
 <%-- Attributes --%>
