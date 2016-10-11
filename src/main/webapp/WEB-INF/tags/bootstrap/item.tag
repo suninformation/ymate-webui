@@ -13,6 +13,8 @@
 <%@ attribute name="subitem" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- 用于下拉菜单标签 --%>
 <%@ attribute name="dropdown" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="menuClass" rtexprvalue="true" type="java.lang.String" %>
+<%@ attribute name="menuAttrs" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="title" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="right" rtexprvalue="true" type="java.lang.Boolean" %>
 <%@ attribute name="left" rtexprvalue="true" type="java.lang.Boolean" %>
@@ -44,7 +46,7 @@
             <jsp:attribute name="_class">dropdown<c:if test="${not empty _class}"><%=" "%>${_class}</c:if></jsp:attribute>
             <jsp:body>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="${func:defaultIfBlank(href, '#')}">${title}</a>
-                <ul class="dropdown-menu<c:if test="${right}"><c:choose><c:when test="${pull}"> pull-right</c:when><c:otherwise> dropdown-menu-right</c:otherwise></c:choose></c:if><c:if test="${left}"><c:choose><c:when test="${pull}"> pull-left</c:when><c:otherwise> dropdown-menu-left</c:otherwise></c:choose></c:if>"><jsp:doBody/></ul>
+                <ul class="dropdown-menu<c:if test="${right}"><c:choose><c:when test="${pull}"> pull-right</c:when><c:otherwise> dropdown-menu-right</c:otherwise></c:choose></c:if><c:if test="${left}"><c:choose><c:when test="${pull}"> pull-left</c:when><c:otherwise> dropdown-menu-left</c:otherwise></c:choose></c:if><c:if test="${not empty menuClass}">${" ".concat(menuClass)}</c:if>"<c:if test="${not empty menuAttrs}">${" ".concat(menuAttrs)}</c:if>><jsp:doBody/></ul>
             </jsp:body>
         </bs:elements>
     </c:when><c:otherwise>
