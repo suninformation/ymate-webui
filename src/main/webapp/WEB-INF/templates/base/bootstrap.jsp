@@ -25,6 +25,7 @@
                 <script src="//cdn.bootcss.com/flot/0.8.3/excanvas.min.js" type="text/javascript"></script>
                 <![endif]-->
                 <script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
+                <script src="//cdn.bootcss.com/jqueryui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
                 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 
                 <script src="//cdn.bootcss.com/holder/2.9.3/holder.min.js" type="text/javascript"></script>

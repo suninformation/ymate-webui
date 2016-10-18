@@ -17,6 +17,6 @@
 <%-- striped: 条纹效果 --%>
 <%@ attribute name="striped" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- Tag Body --%>
-<div class="progress-bar progress-bar-${func:defaultIfBlank(style, 'info')} <c:if test="${striped}"> progress-bar-striped</c:if>" role="progressbar" aria-valuenow="${value}" aria-valuemin="${minValue}" aria-valuemax="<c:choose><c:when test="${maxValue > 0}">${maxValue}</c:when><c:otherwise>100</c:otherwise></c:choose>" style="width: ${value}%">
+<div class="progress-bar<c:if test="${not empty style}"> progress-bar-${style}</c:if><c:if test="${striped}"> progress-bar-striped</c:if>" role="progressbar" aria-valuenow="${value}" aria-valuemin="${minValue}" aria-valuemax="<c:choose><c:when test="${maxValue > 0}">${maxValue}</c:when><c:otherwise>100</c:otherwise></c:choose>" style="width: ${value}%">
     <span<c:if test="${!showLabel}"> class="sr-only"</c:if>>${value}%</span>
 </div>

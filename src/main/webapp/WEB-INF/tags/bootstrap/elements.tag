@@ -43,7 +43,7 @@
 
 <%@ attribute name="_unclosed" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- Tag Body --%>
-<${func:defaultIfBlank(_tag, 'div')} <c:if test="${not empty _id}">id="${_id}"</c:if><c:if
+<${func:defaultIfBlank(_tag, 'div')} <c:if test="${not empty _id}"> id="${_id}"</c:if><c:if
         test="${not empty _name}"> name="${_name}"</c:if><c:if
         test="${not empty _value}"> value="${_value}"</c:if><c:if
         test="${not empty _for}"> for="${_for}"</c:if><c:if

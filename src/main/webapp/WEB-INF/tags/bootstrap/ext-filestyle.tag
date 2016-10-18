@@ -10,7 +10,6 @@
 <%-- labelWidth: 标签的宽度, 大于0时将水平排列 --%>
 <%@ attribute name="labelWidth" rtexprvalue="true" type="java.lang.Integer" %>
 <%@ attribute name="labelSrOnly" rtexprvalue="true" type="java.lang.Boolean" %>
-<%@ attribute name="id" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="name" rtexprvalue="true" type="java.lang.String" %>
 
 <%@ attribute name="placeholder" rtexprvalue="true" type="java.lang.String" %>
@@ -31,10 +30,6 @@
 <%-- feedbackIcon: 额外的图标 --%>
 <%@ attribute name="feedbackIcon" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="disabled" rtexprvalue="true" type="java.lang.Boolean" %>
-<%-- has*: 校验状态 --%>
-<%@ attribute name="hasWarning" rtexprvalue="true" type="java.lang.Boolean" %>
-<%@ attribute name="hasError" rtexprvalue="true" type="java.lang.Boolean" %>
-<%@ attribute name="hasSuccess" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- small: 控件尺寸 - 小 --%>
 <%@ attribute name="small" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- large: 控件尺寸 - 大 --%>
@@ -45,9 +40,9 @@
 <%@ attribute name="_class" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
-<bs:form-control _id="${_id}" _style="${_style}" _class="${_class}" _attrs="${_attrs}" nonControl="true" type="file" id="${id}" name="${name}" label="${label}" labelWidth="${labelWidth}" labelSrOnly="${labelSrOnly}" feedbackIcon="${feedbackIcon}" hasError="${hasError}" hasSuccess="${hasSuccess}" hasWarning="${hasWarning}" helpBlock="${helpBlock}">
-    <jsp:attribute name="style">filestyle<c:if test="${not empty style}"><%=" "%>${style}</c:if></jsp:attribute>
-    <jsp:attribute name="attrs">
+<bs:form-control _id="${_id}" _class="${_class}"  nonControl="true" type="file" name="${name}" label="${label}" labelWidth="${labelWidth}" labelSrOnly="${labelSrOnly}" feedbackIcon="${feedbackIcon}" helpBlock="${helpBlock}">
+    <jsp:attribute name="_style">filestyle<c:if test="${not empty style}"><%=" "%>${style}</c:if></jsp:attribute>
+    <jsp:attribute name="_attrs">
         <c:if test="${hideInput}"> data-input="false"</c:if>
         <c:if test="${hideBadge}"> data-badge="false"</c:if>
         <c:if test="${hideIcon}"> data-icon="false"</c:if>

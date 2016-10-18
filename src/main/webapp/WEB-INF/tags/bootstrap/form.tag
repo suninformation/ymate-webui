@@ -14,6 +14,8 @@
 <%@ attribute name="horizontal" rtexprvalue="true" type="java.lang.Boolean" %>
 <%-- disabled: 禁用表单内所有控件 --%>
 <%@ attribute name="disabled" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="fieldset" rtexprvalue="true" type="java.lang.Boolean" %>
+<%@ attribute name="legend" rtexprvalue="true" type="java.lang.String" %>
 
 <%@ attribute name="name" rtexprvalue="true" type="java.lang.String" %>
 <%@ attribute name="action" rtexprvalue="true" type="java.lang.String" %>
@@ -29,7 +31,7 @@
 <%@ attribute name="_attrs" rtexprvalue="true" type="java.lang.String" %>
 <%-- Tag Body --%>
 <form <c:if test="${not empty _id}">id="${_id}" </c:if><c:if test="${not empty name}">name="${name}" </c:if><c:if test="${not empty action}">action="${action}" </c:if><c:if test="${not empty method}">method="${method}" </c:if><c:choose><c:when test="${not empty enctype}">enctype="${enctype}" </c:when><c:when test="${multipart}">enctype="multipart/form-data" </c:when><c:when test="${urlencoded}">enctype="application/x-www-form-urlencoded" </c:when></c:choose><c:if test="${navbar or left or right or inline or horizontal or not empty _class}">class="<c:choose><c:when test="${navbar}"> navbar-form<c:choose><c:when test="${left}"> navbar-left</c:when><c:when test="${right}"> navbar-right</c:when></c:choose></c:when><c:otherwise><c:choose><c:when test="${inline}">form-inline</c:when><c:when test="${horizontal}">form-horizontal</c:when></c:choose></c:otherwise></c:choose><c:if test="${not empty _class}"><%=" "%>${_class}</c:if>"</c:if><c:if test="${not empty _style}"> style="${_style}"</c:if><c:if test="${not empty _attrs}"><%=" "%>${_attrs}</c:if>>
-    <c:if test="${disabled}"><fieldset disabled></c:if>
+    <c:if test="${fieldset or disabled or not empty legend}"><fieldset<c:if test="${disabled}"> disabled</c:if>><c:if test="${not empty legend}"><legend>${legend}</legend></c:if></c:if>
     <jsp:doBody/>
-    <c:if test="${disabled}"></fieldset></c:if>
+    <c:if test="${fieldset or disabled or not empty legend}"></fieldset></c:if>
 </form>
