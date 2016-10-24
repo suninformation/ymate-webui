@@ -57,6 +57,4 @@
         test="${not empty tip}"> data-tip="tooltip" title="${tip}"</c:when><c:otherwise> data-popover="popover"<c:choose><c:when
         test="${not empty content}"> title="${popover}" data-content="${content}"</c:when><c:otherwise> data-content="${popover}"</c:otherwise></c:choose></c:otherwise></c:choose> data-placement="${func:defaultIfBlank(placement, 'auto')}"</c:if><c:if
         test="${not empty _attrs}"><%=" "%>${_attrs}
-</c:if>>
-    <jsp:doBody/>
-</<c:choose><c:when test="${link}">a</c:when><c:otherwise>${func:defaultIfBlank(tag, 'button')}</c:otherwise></c:choose>>
+</c:if>><jsp:doBody/></<c:choose><c:when test="${link}">a</c:when><c:otherwise>${func:defaultIfBlank(tag, 'button')}</c:otherwise></c:choose>>
