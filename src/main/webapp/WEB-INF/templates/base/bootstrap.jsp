@@ -4,13 +4,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" trimDirectiveWhitespaces="true" %>
 <%@ taglib uri="http://www.ymate.net/ymweb_core" prefix="ymweb" %>
-<%@ taglib tagdir="/WEB-INF/tags/bootstrap" prefix="bs" %>
+<%@ taglib uri="http://www.ymate.net/ymweb_bs" prefix="bs" %>
 <ymweb:ui cleanup="false">
     <ymweb:layout cleanup="false">
-        <bs:page title="@{title}" >
+        <bs:page title="@{title}">
             <jsp:attribute name="headerBody">
                 @{meta}
-                <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css">
+                <%--<link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css">--%>
                 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
                 <link href="//cdn.bootcss.com/simple-line-icons/2.3.2/css/simple-line-icons.min.css" rel="stylesheet" type="text/css">
                 <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
