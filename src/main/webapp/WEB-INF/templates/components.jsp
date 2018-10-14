@@ -898,10 +898,10 @@
                     <div class="bs-docs-section">
                         <bs:header _tag="h1">Responsive embed</bs:header>
                         <div class="bs-example">
-                            <bs:embed ratio16by9="true" iframe="true" allowfullscreen="true">http://player.youku.com/embed/XMzU2NzQyODI4NA==</bs:embed>
+                            <bs:embed ratio16by9="true" iframe="true" allowfullscreen="true">https://player.youku.com/embed/XMzU2NzQyODI4NA==</bs:embed>
                         </div>
                         <div class="highlight">
-                            <pre>&lt;bs:embed ratio16by9=&quot;true&quot; iframe=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;http://player.youku.com/embed/XMzU2NzQyODI4NA==&lt;/bs:embed&gt;</pre>
+                            <pre>&lt;bs:embed ratio16by9=&quot;true&quot; iframe=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;https://player.youku.com/embed/XMzU2NzQyODI4NA==&lt;/bs:embed&gt;</pre>
                         </div>
                     </div>
                     <!-- Docs: Thumbnails-->
@@ -1072,7 +1072,7 @@
                     <bs:item href="https://github.com/suninformaiton/ymate-framework-v2">Framework</bs:item>
                     <bs:item href="https://github.com/suninformaiton/ymate-webui">WebUI</bs:item>
                 </ul>
-                <bs:text justified="true">Copyright &copy; 2016 yMate.Net</bs:text>
+                <bs:text justified="true">Copyright &copy; 2018 yMate.Net</bs:text>
             </bs:container>
         </div>
     </ymweb:layout>
