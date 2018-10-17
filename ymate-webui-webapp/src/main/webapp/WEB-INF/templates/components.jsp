@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" trimDirectiveWhitespaces="false" %>
 <%@ taglib uri="http://www.ymate.net/ymweb_core" prefix="ymweb" %>
 <%@ taglib uri="http://www.ymate.net/ymweb_bs" prefix="bs" %>
-<ymweb:ui src="base/bootstrap">
+<ymweb:ui src="webui/_bootstrap">
     <ymweb:property name="title">WebUI | YMP - yMate.Net</ymweb:property>
     <ymweb:css href="assets/styles/doc.min.css" type="text/css"/>
     <ymweb:css href="assets/styles/patch.css" type="text/css"/>
@@ -26,7 +26,7 @@
                     <bs:item href="#">Tags</bs:item>
                 </bs:nav>
                 <bs:nav right="true">
-                    <bs:item href="#"><bs:icon fa="true" style="github" faW="true">GitHub</bs:icon></bs:item>
+                    <bs:item href="https://github.com/suninformation/ymate-webui"><bs:icon fa="true" style="github" faW="true">GitHub</bs:icon></bs:item>
                 </bs:nav>
             </jsp:body>
         </bs:navbar>
@@ -1071,6 +1071,7 @@
                     <bs:item href="https://github.com/suninformaiton/ymate-platform-v2">YMP</bs:item>
                     <bs:item href="https://github.com/suninformaiton/ymate-framework-v2">Framework</bs:item>
                     <bs:item href="https://github.com/suninformaiton/ymate-webui">WebUI</bs:item>
+                    <bs:item href="https://getbootstrap.com/docs/3.3/">Bootstrap v3.3</bs:item>
                 </ul>
                 <bs:text justified="true">Copyright &copy; 2018 yMate.Net</bs:text>
             </bs:container>
