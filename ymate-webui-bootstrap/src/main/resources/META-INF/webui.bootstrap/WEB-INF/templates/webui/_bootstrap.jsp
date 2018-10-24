@@ -34,6 +34,7 @@
                 <script src="@{page.path}assets/bootstrap/scripts/validator.min.js" type="text/javascript"></script>
                 <script src="@{page.path}assets/bootstrap/scripts/jquery.serializejson.min.js" type="text/javascript"></script>
                 <script src="@{page.path}assets/bootstrap/scripts/md5.min.js" type="text/javascript"></script>
+                <script src="@{page.path}assets/bootstrap/scripts/jsencrypt.min.js" type="text/javascript"></script>
                 @{script}
                 @{page.scripts}
             </jsp:body>
