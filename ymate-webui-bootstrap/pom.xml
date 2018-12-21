@@ -77,6 +77,10 @@
             <artifactId>junit</artifactId>
         </dependency>
         <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
             <groupId>net.ymate.framework</groupId>
             <artifactId>ymate-framework-core</artifactId>
         </dependency>

@@ -127,6 +127,11 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
+                <groupId>jstl</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+            </dependency>
+            <dependency>
                 <groupId>net.ymate.starter</groupId>
                 <artifactId>ymate-starter-webapp</artifactId>
                 <version>1.0.1</version>

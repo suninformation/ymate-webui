@@ -78,7 +78,12 @@
         </dependency>
         <dependency>
             <groupId>net.ymate.framework</groupId>
-            <artifactId>ymate-framework-unpack</artifactId>
+            <artifactId>ymate-framework-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.ymate.webui</groupId>
+            <artifactId>ymate-webui-bootstrap</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
