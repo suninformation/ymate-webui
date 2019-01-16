@@ -151,6 +151,27 @@
             }
         });
     };
+    window.__browserVersion = function (userAgent) {
+        if (userAgent) {
+            var _brower = {};
+            var _ua = userAgent.toLowerCase();
+            var s;
+            (s = _ua.match(/rv:([\d.]+)\) like gecko/)) ? _brower.ie = s[1] :
+                (s = _ua.match(/msie ([\d\\.]+)/)) ? _brower.ie = s[1] :
+                    (s = _ua.match(/edge\/([\d\\.]+)/)) ? _brower.edge = s[1] :
+                        (s = _ua.match(/firefox\/([\d\\.]+)/)) ? _brower.firefox = s[1] :
+                            (s = _ua.match(/(?:opera|opr).([\d\\.]+)/)) ? _brower.opera = s[1] :
+                                (s = _ua.match(/chrome\/([\d\\.]+)/)) ? _brower.chrome = s[1] :
+                                    (s = _ua.match(/version\/([\d\\.]+).*safari/)) ? _brower.safari = s[1] : 0;
+            if (_brower.ie) return ('IE: ' + _brower.ie);
+            if (_brower.edge) return ('EDGE: ' + _brower.edge);
+            if (_brower.firefox) return ('Firefox: ' + _brower.firefox);
+            if (_brower.chrome) return ('Chrome: ' + _brower.chrome);
+            if (_brower.opera) return ('Opera: ' + _brower.opera);
+            if (_brower.safari) return ('Safari: ' + _brower.safari);
+        }
+        return 'Unknown';
+    };
 
     //
     $('[data-tip="tooltip"]').tooltip();
