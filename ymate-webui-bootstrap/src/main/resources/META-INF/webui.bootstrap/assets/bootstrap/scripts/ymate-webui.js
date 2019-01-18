@@ -1461,6 +1461,7 @@
     $.fn.navigation = function (options) {
 
         var defaults = {
+            searchable: false,
             template: '<ul class="sidebar-menu" data-widget="tree">' +
                 '    {% for (var _idx = 0; _idx < o.items.length; _idx++) { %}' +
                 '        {% if (o.items[_idx].type && o.items[_idx].type == \'header\') { %}' +
@@ -1557,7 +1558,74 @@
         };
 
         var opts = $.extend({}, defaults, options);
-        $(this).html(tmpl(opts.template, {items: opts.items}));
+        var _htmlStr = tmpl(opts.template, {items: opts.items});
+        if (opts.searchable) {
+            _htmlStr = "<form class=\"sidebar-form\">" +
+                "    <div class=\"input-group\">\n" +
+                "        <input type=\"text\" name=\"q\" class=\"form-control\" placeholder=\"搜索...\">" +
+                "        <span class=\"input-group-btn\">" +
+                "            <button type=\"submit\" name=\"search\" class=\"btn btn-flat\">" +
+                "                <i class=\"fa fa-search\"></i>" +
+                "            </button>" +
+                "        </span>" +
+                "    </div>" +
+                "</form>" + _htmlStr;
+        }
+        $(this).append(_htmlStr);
+        //
+        if (opts.searchable) {
+            $('.sidebar-form').on('submit', function (e) {
+                e.preventDefault();
+            });
+
+            $('.sidebar-menu li.active').data('lte.pushmenu.active', true);
+
+            $('.sidebar-form input[type="text"]').on('keyup', function () {
+                var term = $(this).val().trim();
+                var items = $('.sidebar-menu li');
+                if (term.length === 0) {
+                    items.each(function () {
+                        $(this).show(0);
+                        $(this).removeClass('active');
+                        if ($(this).data('lte.pushmenu.active')) {
+                            $(this).addClass('active');
+                        }
+                    });
+                    return;
+                }
+
+                items.each(function () {
+                    if ($(this).text().toLowerCase().indexOf(term.toLowerCase()) === -1) {
+                        $(this).hide(0);
+                        $(this).removeClass('pushmenu-search-found', false);
+
+                        if ($(this).is('.treeview')) {
+                            $(this).removeClass('active');
+                        }
+                    } else {
+                        $(this).show(0);
+                        $(this).addClass('pushmenu-search-found');
+
+                        if ($(this).is('.treeview')) {
+                            $(this).addClass('active');
+                        }
+
+                        var parent = $(this).parents('li').first();
+                        if (parent.is('.treeview')) {
+                            parent.show(0);
+                        }
+                    }
+
+                    if ($(this).is('.header')) {
+                        $(this).show();
+                    }
+                });
+
+                $('.sidebar-menu li.pushmenu-search-found.treeview').each(function () {
+                    $(this).find('.pushmenu-search-found').show(0);
+                });
+            });
+        }
     }
 
 })(jQuery);
