@@ -930,8 +930,8 @@
                                 _formField.attr('value', value);
                             }
                         } else if (_fieldTagName === "select") {
-                            _formField.find("option").attr("selected",false);
-                            _formField.find("option[value='" + value + "']").attr("selected",true);
+                            _formField.find("option").attr("selected", false);
+                            _formField.find("option[value='" + value + "']").attr("selected", true);
                         } else if (_fieldTagName === "textarea") {
                             _formField.text(value);
                         } else {
@@ -1711,6 +1711,7 @@
         var defaults = {
             provinceField: "select[name=province]",
             cityField: "select[name=city]",
+            countryHidden: false,
             defaultTitle: "",
             initValue: {
                 country: '',
@@ -1726,23 +1727,25 @@
         __init();
 
         function __init() {
-            if (_country && _country.length > 0) {
+            if (!opts.countryHidden && _country && _country.length > 0) {
                 __appendOptions(_country, __data, true, opts.initValue.country);
-                //
-                var _province = $(opts.provinceField);
-                if (_province && _province.length > 0) {
-                    __appendOptions(_province, __getProvinceByName(opts.initValue.country), true, opts.initValue.province);
+            }
+            //
+            var _province = $(opts.provinceField);
+            if (_province && _province.length > 0) {
+                __appendOptions(_province, __getProvinceByName(opts.countryHidden ? "中国" : opts.initValue.country), true, opts.initValue.province);
+                if (!opts.countryHidden) {
                     _country.on("change", function () {
                         __appendOptions(_province, __getProvinceByName(_country.val()), true).val("").change();
                     });
-                    //
-                    var _city = $(opts.cityField);
-                    if (_city && _city.length > 0) {
-                        __appendOptions(_city, __getCityByName(opts.initValue.country, opts.initValue.province), true, opts.initValue.city);
-                        _province.on("change", function () {
-                            __appendOptions(_city, __getCityByName(_country.val(), _province.val()), true).val("").change();
-                        });
-                    }
+                }
+                //
+                var _city = $(opts.cityField);
+                if (_city && _city.length > 0) {
+                    __appendOptions(_city, __getCityByName(opts.countryHidden ? "中国" : opts.initValue.country, opts.initValue.province), true, opts.initValue.city);
+                    _province.on("change", function () {
+                        __appendOptions(_city, __getCityByName(opts.countryHidden ? "中国" : _country.val(), _province.val()), true).val("").change();
+                    });
                 }
             }
         }
