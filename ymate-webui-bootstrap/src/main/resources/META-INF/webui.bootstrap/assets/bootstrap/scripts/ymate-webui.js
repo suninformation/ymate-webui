@@ -490,9 +490,9 @@
             // 验证码类型：sms|mail
             type: "sms",
             // 验证码作用域
-            scope: "passport",
+            scope: null,
             // 图片验证码请求URL地址
-            captcha_url: null,
+            captcha_url: "captcha",
             // 手机号码或邮件地址文本域ID或对象
             targetField: null,
             // 消息提示组件
@@ -513,10 +513,6 @@
         };
 
         var opts = $.extend({}, defaults, options);
-
-        if (!opts.captcha_url) {
-            opts.captcha_url = "captcha?scope=" + opts.type;
-        }
 
         var __timer;
 
