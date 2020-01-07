@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>ymate-webui-parent</artifactId>
+        <groupId>net.ymate.webui</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ymate-webui-taglib</artifactId>
+    <packaging>jar</packaging>
+
+    <name>ymate-webui-taglib</name>
+    <url>https://www.ymate.net/</url>
+    <description>YMP WebUI TagLib Archetype</description>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <manifestSections>
+                                <manifestSection>
+                                    <name>net/ymate/webui/taglib/</name>
+                                </manifestSection>
+                            </manifestSections>
+                            <manifestEntries>
+                                <Specification-Version>${project.version}</Specification-Version>
+                                <Implementation-Title>${project.name}</Implementation-Title>
+                                <Implementation-Version>${maven.build.timestamp}</Implementation-Version>
+                                <Implementation-Vendor>www.ymate.net</Implementation-Vendor>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.ymate.platform</groupId>
+            <artifactId>ymate-platform-plugin</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.ymate.platform</groupId>
+            <artifactId>ymate-platform-webmvc</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

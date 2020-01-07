@@ -8,10 +8,10 @@
     </listener>
 
     <filter>
-        <filter-name>GeneralBasicFilter</filter-name>
-        <filter-class>net.ymate.framework.filter.GeneralBasicFilter</filter-class>
+        <filter-name>GeneralWebFilter</filter-name>
+        <filter-class>net.ymate.platform.webmvc.support.GeneralWebFilter</filter-class>
         <init-param>
-            <param-name>response_headers</param-name>
+            <param-name>responseHeaders</param-name>
             <!--
             HTTP 响应头信息中的 X-Frame-Options，可以指示浏览器是否应该加载一个 iframe 中的页面。
             如果服务器响应头信息中没有 X-Frame-Options，则该网站存在 ClickJacking 攻击风险。
@@ -25,7 +25,7 @@
         </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>GeneralBasicFilter</filter-name>
+        <filter-name>GeneralWebFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
@@ -63,12 +63,20 @@
             <!--
             <http-method>GET</http-method>
             <http-method>POST</http-method>
+            <http-method>OPTIONS</http-method>
             -->
             <http-method>PUT</http-method>
             <http-method>HEAD</http-method>
             <http-method>TRACE</http-method>
             <http-method>DELETE</http-method>
-            <http-method>OPTIONS</http-method>
+            <http-method>SEARCH</http-method>
+            <http-method>COPY</http-method>
+            <http-method>MOVE</http-method>
+            <http-method>PROPFIND</http-method>
+            <http-method>PROPPATCH</http-method>
+            <http-method>MKCOL</http-method>
+            <http-method>LOCK</http-method>
+            <http-method>UNLOCK</http-method>
         </web-resource-collection>
         <auth-constraint/>
     </security-constraint>
@@ -83,8 +91,16 @@
         <location>/WEB-INF/templates/error.jsp?status=400</location>
     </error-page>
     <error-page>
+        <error-code>401</error-code>
+        <location>/WEB-INF/templates/error.jsp?status=401</location>
+    </error-page>
+    <error-page>
         <error-code>404</error-code>
         <location>/WEB-INF/templates/error.jsp?status=404</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/WEB-INF/templates/error.jsp?status=405</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>

@@ -1069,11 +1069,10 @@
             <bs:container>
                 <ul class="bs-docs-footer-links">
                     <bs:item href="https://github.com/suninformaiton/ymate-platform-v2">YMP</bs:item>
-                    <bs:item href="https://github.com/suninformaiton/ymate-framework-v2">Framework</bs:item>
                     <bs:item href="https://github.com/suninformaiton/ymate-webui">WebUI</bs:item>
                     <bs:item href="https://getbootstrap.com/docs/3.3/">Bootstrap v3.3</bs:item>
                 </ul>
-                <bs:text justified="true">Copyright &copy; 2018 yMate.Net</bs:text>
+                <bs:text justified="true">Copyright &copy; 2020 yMate.Net</bs:text>
             </bs:container>
         </div>
     </ymweb:layout>

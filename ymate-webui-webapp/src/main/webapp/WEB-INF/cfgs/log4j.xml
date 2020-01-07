@@ -30,7 +30,7 @@
             <AppenderRef ref="custom-logname"/>
         </Logger>
         -->
-        <Root level="warn">
+        <Root level="debug">
             <AppenderRef ref="default"/>
         </Root>
     </Loggers>

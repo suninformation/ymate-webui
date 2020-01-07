@@ -1,5 +1,5 @@
 /*
- * Copyright 2007-2019 the original author or authors.
+ * Copyright 2007-2020 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,13 +15,12 @@
  */
 package net.ymate.webui;
 
-import net.ymate.framework.unpack.IUnpacker;
-import net.ymate.framework.unpack.annotation.Unpacker;
+import net.ymate.module.unpack.IUnpack;
+import net.ymate.module.unpack.annotation.Unpack;
 
 /**
  * @author 刘镇 (suninformation@163.com) on 2018/10/17 下午1:41
- * @version 1.0
  */
-@Unpacker("webui.bootstrap")
-public class BootstrapUnpacker implements IUnpacker {
+@Unpack("webui.bootstrap")
+public class BootstrapUnpacker implements IUnpack {
 }
