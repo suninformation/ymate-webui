@@ -237,6 +237,11 @@
             <type>java.lang.String</type>
         </attribute>
         <attribute>
+            <name>charsetEncoding</name>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+        <attribute>
             <name>theme</name>
             <rtexprvalue>true</rtexprvalue>
             <type>java.lang.String</type>
